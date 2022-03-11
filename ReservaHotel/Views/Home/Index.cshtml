@@ -4,22 +4,66 @@
 }
 
 
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
 <!doctype html>
 <html lang="en">
 <head>
-  
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   
 
+    <title>Hotels a Hotels Category Responsive Web Template | Home : W3layouts</title>
 
+    <link href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap" rel="stylesheet">
+
+    <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
 </head>
-
-
 <body>
-    
+    <!--w3l-header-->
 
+    <header class="w3l-header-nav">
+        <!--/nav-->
+        <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/hotels.png" alt="Your logo" style="height:35px;" /> Hotels
+                </a>
+                <!-- if logo is image enable this
+                            <a class="navbar-brand" href="#index.html">
+                                <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                            </a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <a href="#booking" class="ml-3 book btn btn-secondary btn-style">Book Now</a>
+                </div>
+            </div>
+        </nav>
+        <!--//nav-->
+    </header>
+    <!-- //w3l-header -->
+    <!-- main-slider -->
     <section class="w3l-main-slider" id="home">
         <div class="companies20-content">
             <div class="owl-one owl-carousel owl-theme">
@@ -98,28 +142,27 @@
             </div>
         </div>
     </section>
-
+    <!-- /main-slider -->
     <section class="w3l-availability-form" id="booking">
-   
+        <!-- /w3l-availability-form-section -->
         <div class="w3l-availability-form-main py-5">
             <div class="container pt-lg-3 pb-lg-5">
                 <div class="forms-top">
                     <div class="form-right">
                         <div class="form-inner-cont">
                             <h3 class="title-small">CONSULTAR DISPONIBILIDAD</h3>
-                         
-                            
+                            <form action="search-results.html" method="post" class="signin-form">
                                 <div class="row book-form">
                                     <div class="form-input col-md-4 col-sm-6 mt-3">
-                                        <label>Check-in Date</label>
+                                        <label>Check-in Fecha</label>
                                         <input type="date" name="" placeholder="Date" required="">
                                     </div>
                                     <div class="form-input col-md-4 col-sm-6 mt-3">
-                                        <label>Check-out Date</label>
+                                        <label>Check-out Fecha</label>
                                         <input type="date" name="" placeholder="Date" required="">
                                     </div>
                                     <div class="form-input col-md-4 col-sm-6 mt-3">
-                                        <label>Adults</label>
+                                        <label>Adultos</label>
                                         <select class="selectpicker">
                                             <option>01</option>
                                             <option>02</option>
@@ -129,7 +172,7 @@
 
                                     </div>
                                     <div class="form-input col-md-4 col-sm-6 mt-3">
-                                        <label>Children</label>
+                                        <label>Niños</label>
                                         <select class="selectpicker">
                                             <option>01</option>
                                             <option>02</option>
@@ -139,15 +182,15 @@
 
                                     </div>
                                     <div class="form-input col-md-4 col-sm-6 mt-3">
-                                        <label>Price </label>
+                                        <label>Precio</label>
                                         <input type="text" name="" placeholder="Max Price ($)" required />
                                     </div>
                                     <div class="bottom-btn col-md-4 col-sm-6 mt-3">
-                                        <label>Consultar Disponibilidad</label>
-                                        <button class="btn btn-primary w-100 px-2" href="@Url.Action("Create", "habitacion")">Consultar</button>
+                                        <label>Consultar disponibilidad </label>
+                                        <button class="btn btn-style btn-primary w-100 px-2">Consultar disponibilidad</button>
                                     </div>
                                 </div>
-                           
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -160,8 +203,8 @@
         <div class="container py-sm-4">
             <div class="row">
                 <div class="col-lg-6 about-left mb-md-0 mb-5">
-                    <h3 class="title-big">Disfruta tus vacaciones</h3>
-                    <h5>Phasellus sed aliquam leo. Vestibulum ullamcorper a massa eu fringilla.</h5>
+                    <h3 class="title-big">Relax in our Resort</h3>
+                    <h5>We make the best for all our customers.</h5>
                     <p class="mt-3">
                         Duis nisi sapien, elementum finibus fermentum eget, aliquet leo. Mauris hendrerit vel ex.
                         Quisque vitae luctus massa. Phasellus sed aliquam leo. Vestibulum ullamcorper a massa eu fringilla.
@@ -171,8 +214,8 @@
                     <a href="about.html" class="btn btn-style btn-primary mt-sm-5 mt-4">Learn About Us</a>
                 </div>
                 <div class="col-lg-6 about-right position-relative mt-lg-0 mt-5">
-                    <img src="~/Content/images/top.jpg" alt="" class="img-fluid img-border mt-4" />
-                    <img src="~/Content/images/bottom.jpg" alt="" class="img-fluid position-absolute img-position" />
+                    <img src="assets/images/top.jpg" alt="" class="img-fluid img-border mt-4" />
+                    <img src="assets/images/bottom.jpg" alt="" class="img-fluid position-absolute img-position" />
                 </div>
             </div>
         </div>
@@ -207,7 +250,7 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. A recusandae, illum sequi numquam
                                 tempora voluptates?
                             </p>
-                            <a href="#book" class="btn btn-style btn-primary mt-sm-4 mt-3">Reservar ahora</a>
+                            <a href="#book" class="btn btn-style btn-primary mt-sm-4 mt-3">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -316,8 +359,8 @@
     <div class="quotation py-5">
         <div class="container py-xl-5 py-lg-3">
             <div class="welcome-left text-center py-md-5 py-3">
-                <h3>Disfruta de tus mejores vacaciones en el lugar que prefieras</h3>
-                <a href="booking.html" class="btn btn-style transparent-btn mt-sm-5 mt-4 mr-2">Reservar ahora</a>
+                <h3>Enjoy a Luxury experience. Discover our locaions. Relax and enjoy your holiday</h3>
+                <a href="booking.html" class="btn btn-style transparent-btn mt-sm-5 mt-4 mr-2">Book Now</a>
                 <a href="contact.html" class="btn btn-style btn-primary mt-sm-5 mt-4">Contact Us</a>
             </div>
         </div>
@@ -374,7 +417,10 @@
 
                         <ul>
                             <h6 class="footer-title-29">Useful Links</h6>
-                            
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About hotels</a></li>
+                            <li><a href="#blogposts"> Blog posts</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-5 footer-list-29 footer-3 mt-lg-0 mt-5">
