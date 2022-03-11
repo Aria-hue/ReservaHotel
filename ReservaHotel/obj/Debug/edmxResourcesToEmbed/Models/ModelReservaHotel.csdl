@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sistemahotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="habitacion">
+    <Key>
+      <PropertyRef Name="id_habitacion" />
+    </Key>
+    <Property Name="id_habitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cantidad_personas" Type="Int32" />
+    <Property Name="disponibilidad" Type="Boolean" />
+    <Property Name="detalles" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="reservas" Relationship="Self.FK__reservas__habita__267ABA7A" FromRole="habitacion" ToRole="reservas" />
+  </EntityType>
+  <EntityType Name="reservas">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+    </Key>
+    <Property Name="id_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="habitacion" Type="Int32" />
+    <Property Name="fecha_entrada" Type="DateTime" Precision="3" />
+    <Property Name="fecha_salida" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="habitacion1" Relationship="Self.FK__reservas__habita__267ABA7A" FromRole="reservas" ToRole="habitacion" />
+  </EntityType>
+  <Association Name="FK__reservas__habita__267ABA7A">
+    <End Role="habitacion" Type="Self.habitacion" Multiplicity="0..1" />
+    <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="habitacion">
+        <PropertyRef Name="id_habitacion" />
+      </Principal>
+      <Dependent Role="reservas">
+        <PropertyRef Name="habitacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sistemahotelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="habitacion" EntityType="Self.habitacion" />
+    <EntitySet Name="reservas" EntityType="Self.reservas" />
+    <AssociationSet Name="FK__reservas__habita__267ABA7A" Association="Self.FK__reservas__habita__267ABA7A">
+      <End Role="habitacion" EntitySet="habitacion" />
+      <End Role="reservas" EntitySet="reservas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

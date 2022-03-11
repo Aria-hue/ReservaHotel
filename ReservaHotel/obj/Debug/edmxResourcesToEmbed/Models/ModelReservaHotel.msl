@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sistemahotelModelStoreContainer" CdmEntityContainer="sistemahotelEntities">
+    <EntitySetMapping Name="habitacion">
+      <EntityTypeMapping TypeName="sistemahotelModel.habitacion">
+        <MappingFragment StoreEntitySet="habitacion">
+          <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cantidad_personas" ColumnName="cantidad_personas" />
+          <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
+          <ScalarProperty Name="detalles" ColumnName="detalles" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservas">
+      <EntityTypeMapping TypeName="sistemahotelModel.reservas">
+        <MappingFragment StoreEntitySet="reservas">
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="habitacion" ColumnName="habitacion" />
+          <ScalarProperty Name="fecha_entrada" ColumnName="fecha_entrada" />
+          <ScalarProperty Name="fecha_salida" ColumnName="fecha_salida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

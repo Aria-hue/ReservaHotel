@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/fonts/fontawesome-webfont.woff" />
+    <link href="~/fonts/fontawesome-webfont.ttf">
+    <link href="~/fonts/fontawesome-webfont.eot">
+    <link href="~/fonts/fontawesome-webfont.woff2">
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/css/style-starter.css" rel="stylesheet" />
+    <title>Hotels a Hotels Category Responsive Web Template | Home : W3layouts</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <header class="w3l-header-nav">
+        <!--/nav-->
+        <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="~/Content/images/hotels.png" alt="Your logo" style="height:35px;" /> Hotels
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                    </ul>
+                    <a href="#booking" class="ml-3 book btn btn-secondary btn-style">Book Now</a>
+                </div>
+            </div>
+        </nav>
+        <!--//nav-->
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

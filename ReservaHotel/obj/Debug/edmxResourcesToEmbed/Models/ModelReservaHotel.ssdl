@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sistemahotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="habitacion">
+    <Key>
+      <PropertyRef Name="id_habitacion" />
+    </Key>
+    <Property Name="id_habitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="cantidad_personas" Type="int" />
+    <Property Name="disponibilidad" Type="bit" />
+    <Property Name="detalles" Type="varchar" MaxLength="80" />
+    <Property Name="precio" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="reservas">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+    </Key>
+    <Property Name="id_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="habitacion" Type="int" />
+    <Property Name="fecha_entrada" Type="datetime" />
+    <Property Name="fecha_salida" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__reservas__habita__267ABA7A">
+    <End Role="habitacion" Type="Self.habitacion" Multiplicity="0..1" />
+    <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="habitacion">
+        <PropertyRef Name="id_habitacion" />
+      </Principal>
+      <Dependent Role="reservas">
+        <PropertyRef Name="habitacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sistemahotelModelStoreContainer">
+    <EntitySet Name="habitacion" EntityType="Self.habitacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reservas" EntityType="Self.reservas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__reservas__habita__267ABA7A" Association="Self.FK__reservas__habita__267ABA7A">
+      <End Role="habitacion" EntitySet="habitacion" />
+      <End Role="reservas" EntitySet="reservas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

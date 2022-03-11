@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="sistemahotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="habitacion">
+          <Key>
+            <PropertyRef Name="id_habitacion" />
+          </Key>
+          <Property Name="id_habitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="cantidad_personas" Type="int" />
+          <Property Name="disponibilidad" Type="bit" />
+          <Property Name="detalles" Type="varchar" MaxLength="80" />
+          <Property Name="precio" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="reservas">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="habitacion" Type="int" />
+          <Property Name="fecha_entrada" Type="datetime" />
+          <Property Name="fecha_salida" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__reservas__habita__267ABA7A">
+          <End Role="habitacion" Type="Self.habitacion" Multiplicity="0..1" />
+          <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="habitacion">
+              <PropertyRef Name="id_habitacion" />
+            </Principal>
+            <Dependent Role="reservas">
+              <PropertyRef Name="habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sistemahotelModelStoreContainer">
+          <EntitySet Name="habitacion" EntityType="Self.habitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reservas" EntityType="Self.reservas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__reservas__habita__267ABA7A" Association="Self.FK__reservas__habita__267ABA7A">
+            <End Role="habitacion" EntitySet="habitacion" />
+            <End Role="reservas" EntitySet="reservas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sistemahotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="habitacion">
+          <Key>
+            <PropertyRef Name="id_habitacion" />
+          </Key>
+          <Property Name="id_habitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad_personas" Type="Int32" />
+          <Property Name="disponibilidad" Type="Boolean" />
+          <Property Name="detalles" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="reservas" Relationship="Self.FK__reservas__habita__267ABA7A" FromRole="habitacion" ToRole="reservas" />
+        </EntityType>
+        <EntityType Name="reservas">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="habitacion" Type="Int32" />
+          <Property Name="fecha_entrada" Type="DateTime" Precision="3" />
+          <Property Name="fecha_salida" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="habitacion1" Relationship="Self.FK__reservas__habita__267ABA7A" FromRole="reservas" ToRole="habitacion" />
+        </EntityType>
+        <Association Name="FK__reservas__habita__267ABA7A">
+          <End Role="habitacion" Type="Self.habitacion" Multiplicity="0..1" />
+          <End Role="reservas" Type="Self.reservas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="habitacion">
+              <PropertyRef Name="id_habitacion" />
+            </Principal>
+            <Dependent Role="reservas">
+              <PropertyRef Name="habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sistemahotelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="habitacion" EntityType="Self.habitacion" />
+          <EntitySet Name="reservas" EntityType="Self.reservas" />
+          <AssociationSet Name="FK__reservas__habita__267ABA7A" Association="Self.FK__reservas__habita__267ABA7A">
+            <End Role="habitacion" EntitySet="habitacion" />
+            <End Role="reservas" EntitySet="reservas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sistemahotelModelStoreContainer" CdmEntityContainer="sistemahotelEntities">
+          <EntitySetMapping Name="habitacion">
+            <EntityTypeMapping TypeName="sistemahotelModel.habitacion">
+              <MappingFragment StoreEntitySet="habitacion">
+                <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cantidad_personas" ColumnName="cantidad_personas" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
+                <ScalarProperty Name="detalles" ColumnName="detalles" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reservas">
+            <EntityTypeMapping TypeName="sistemahotelModel.reservas">
+              <MappingFragment StoreEntitySet="reservas">
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+                <ScalarProperty Name="habitacion" ColumnName="habitacion" />
+                <ScalarProperty Name="fecha_entrada" ColumnName="fecha_entrada" />
+                <ScalarProperty Name="fecha_salida" ColumnName="fecha_salida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
